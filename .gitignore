@@ -223,3 +223,8 @@ maven-repository/
 .maven-cache/
 maven-metadata-local.xml
 .maven_repos/
+
+
+reports/
+
+screenshots/
