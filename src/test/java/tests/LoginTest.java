@@ -39,28 +39,29 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "LoginData")
+ //   @Test(dataProvider = "LoginData")
 //    @Test
 //    @Parameters({"username","password"})
-    public void testValidLogin(String username, String password) {
+    @Test
+    public void testValidLogin(/*String username, String password*/) {
 
-        test = ExtentReportManager.createTest("Login Test - "+username);
+        test = ExtentReportManager.createTest("Login Test - "/*+username*/);
 
         LoginPage loginPage = new LoginPage(driver);
         test.info("Navigating to URL");
 
         test.info("Adding Credentials");
-//        loginPage.enterUsername("admin@yourstore.com");
-//        loginPage.enterPassword("admin");
+        loginPage.enterUsername("admin@yourstore.com");
+        loginPage.enterPassword("admin");
 
-        loginPage.enterUsername(username);
-        loginPage.enterPassword(password);
+//        loginPage.enterUsername(username);
+//        loginPage.enterPassword(password);
 
         test.info("Clicking on Login Button");
         loginPage.clickLogin();
         test.info("Verifying page title");
         System.out.println("Title of the page is : " + driver.getTitle());
-        Assert.assertEquals(driver.getTitle(), "Just a moment...");
+        Assert.assertEquals(driver.getTitle(), "Dashboard / nopCommerce administration");
 
         test.pass("Login Successful");
     }
